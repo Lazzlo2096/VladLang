@@ -68,10 +68,9 @@ something_mainn_footer =
 #E====================================================
 
 
+#B====== parce VladLang ==============
 input_file_to_compile = "main.VladLang"
 {:ok, prog1_vladLang} = File.read(input_file_to_compile)
-#B====== parce VladLang ==============
-
 
 #--------разбить на список строк с новой строки ---------
 #предпологаем одна команда - одна операция
