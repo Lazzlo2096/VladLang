@@ -3,14 +3,23 @@ import java.io._
 
 object VladCompiler {
 	
+	def makeAssembler(name_of_file: String) = {
 
-	val qwer = 
-""".file	"main.c" 
+		val header_1 = 
+""".file	""""+name_of_file+""""
 	.text
 	.section	.rodata
-.LC0:
-	.string	"Hello World!\n"
-	.text
+"""
+
+		val _string_data_1 = """Hello, WORLD!!\n"""
+	
+		val data_1 =
+""".LC0:
+	.string	""""+_string_data_1+""""
+"""
+
+		val body_1 = 
+""".text
 	.globl	main
 	.type	main, @function
 main:
@@ -21,10 +30,16 @@ main:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	leaq	.LC0(%rip), %rdi
+"""
+
+		val print_data_1 = 
+"""leaq	.LC0(%rip), %rdi
 	movl	$0, %eax
 	call	printf@PLT
-	movl	$0, %eax
+"""
+
+		val body_2 = 
+"""movl	$0, %eax
 	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
@@ -35,12 +50,14 @@ main:
 	.section	.note.GNU-stack,"",@progbits
 """
 
+		val makedAssembler =
+			header_1 +
+			data_1 + 
+			body_1 +
+			print_data_1 +
+			body_2
 
-	def makeAssembler() = {
-
-
-		qwer
-
+			makedAssembler
 	}
 
 
@@ -64,7 +81,7 @@ main:
 
 
 
-		val data: String = makeAssembler()
+		val data: String = makeAssembler( input_file_to_compiling )
 
 
 
@@ -79,9 +96,6 @@ main:
 		}finally{
 			p.close()
 		}
-
-
-
 
 		println("Done! :)")
 	}

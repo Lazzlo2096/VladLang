@@ -7,7 +7,7 @@ INPUT_FILE=$(MAIN_PROGRAM)$(MY_LANG_EXTENTION)
 
 
 compileIt: all
-	gcc $(INPUT_FILE).s -o $(MAIN_PROGRAM)
+	gcc $(INPUT_FILE).s #-o $(MAIN_PROGRAM)
 
 all:
 	scalac VladCompiler.scala
