@@ -1,0 +1,5 @@
+a = "Hi, Vlad?\n"
+b = "Hello World!"
+
+print a
+print b

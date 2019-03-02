@@ -100,6 +100,6 @@ whole_programm = something_header <> stack_data_ascii_1 <> other_stack_data <> s
 
 # https://elixir-lang.org/getting-started/io-and-the-file-system.html
 
-#{:ok, tranclated_file_s} = File.open(input_file_to_compile<>".s", [:write]) 
-#IO.write(tranclated_file_s, whole_programm) # puts # Not IO.write потому что, gcc требует чтобы в конце был \n
-#File.close(tranclated_file_s)
+{:ok, tranclated_file_s} = File.open(input_file_to_compile<>".s", [:write]) 
+IO.write(tranclated_file_s, whole_programm) # puts # Not IO.write потому что, gcc требует чтобы в конце был \n
+File.close(tranclated_file_s)

@@ -1,2 +1,4 @@
 *.VladLang.s
 *.exe
+*.s
+*.out
