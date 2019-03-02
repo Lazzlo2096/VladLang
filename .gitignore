@@ -2,3 +2,5 @@
 *.exe
 *.s
 *.out
+*.class
+GCC C gas examples linux VM/*
