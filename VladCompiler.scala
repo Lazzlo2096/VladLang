@@ -7,14 +7,15 @@ object VladCompiler {
 
 		val header_1 = 
 """.file	""""+name_of_file+""""
+	.intel_syntax noprefix
 	.text
 	.section	.rodata
 """
 
-		val _string_data_1 = """Hello, WORLD!!\n"""
-	
+		val _string_data_1 = """Hello, WO@@RLD!!\n"""
+		val data__counter = 0
 		val data_1 =
-""".LC0:
+""".LC"""+data__counter+""":
 	.string	""""+_string_data_1+""""
 """
 
@@ -25,22 +26,22 @@ object VladCompiler {
 main:
 .LFB0:
 	.cfi_startproc
-	pushq	%rbp
+	push	rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
-	movq	%rsp, %rbp
+	mov	rbp, rsp
 	.cfi_def_cfa_register 6
 """
 
 		val print_data_1 = 
-"""leaq	.LC0(%rip), %rdi
-	movl	$0, %eax
+"""lea	rdi, .LC0[rip]
+	mov	eax, 0
 	call	printf@PLT
 """
 
 		val body_2 = 
-"""movl	$0, %eax
-	popq	%rbp
+"""mov	eax, 0
+	pop	rbp
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
