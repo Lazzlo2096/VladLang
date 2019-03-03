@@ -25,12 +25,8 @@ object VladCompiler {
 	.type	main, @function
 main:
 .LFB0:
-	.cfi_startproc
 	push	rbp
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
 	mov	rbp, rsp
-	.cfi_def_cfa_register 6
 """
 
 		val print_data_1 = 
@@ -42,9 +38,7 @@ main:
 		val body_2 = 
 """mov	eax, 0
 	pop	rbp
-	.cfi_def_cfa 7, 8
 	ret
-	.cfi_endproc
 .LFE0:
 	.size	main, .-main
 	.ident	"GCC: (Ubuntu 8.2.0-7ubuntu1) 8.2.0"
