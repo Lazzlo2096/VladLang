@@ -1,5 +1,0 @@
-let a = "Hi, Vlad?\n" //non mutable, no variable
-let b = "Hello World!"
-
-print a
-print b

@@ -16,4 +16,4 @@ run_VladLang_compiler:
 
 clean:
 	@echo "Cleaning up..."
-	rm *.class *.s
+	rm *.class *.s *.out

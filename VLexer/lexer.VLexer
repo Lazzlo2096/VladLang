@@ -1,0 +1,12 @@
+tokeins:
+	keyword name string
+
+keyword:
+	let print
+
+name:
+	[a-zA-Z]+
+
+
+"let %name% = %string%"
+"print %name%"

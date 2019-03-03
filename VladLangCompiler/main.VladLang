@@ -1,0 +1,6 @@
+let b = "Hi, Vlad?\n" //non mutable, no variable
+
+print b
+print a
+
+let a = "No, Hello World!\n"
