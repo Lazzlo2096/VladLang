@@ -1,6 +1,5 @@
 *.VladLang.s
 *.exe
-*.s
 *.out
 *.class
-GCC C gas examples linux VM/*
+GCC C gas linux x86_64 examples/*.s
